@@ -1,1 +1,1 @@
-# course_udacity_prog_foundation_python
+** This if for the Udacity course Programming Foundations with Python
