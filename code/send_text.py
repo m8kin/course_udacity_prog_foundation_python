@@ -1,16 +1,15 @@
 # imports
-from twilio.rest import TwilioRestClient 
+from twilio import rest
  
 # put your own credentials here 
 ACCOUNT_SID = "get from twilo site" 
 AUTH_TOKEN = "get from twilo site"
  
-client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN) 
+client = rest.TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN) 
  
-phoneNumbers = client.phone_numbers.search(
-	country="AU",  
-	type="mobile"
-) 
- 
-for p in phoneNumbers: 
-	print p.phone_number
+message = client.messages.create(
+    body="Hello from Python", # Text to send
+    to="+123456",    # Replace with your phone number
+    from_="+987654") # Replace with your Twilio number
+
+print(message.sid)
